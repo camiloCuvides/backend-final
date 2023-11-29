@@ -15,7 +15,7 @@ beforeAll(async() => {
     token = res.body.token;
 })
 
-test('GET /cart debe traer todo lo del carrito', async () => {
+test('GET /cart debe traer todas las compras', async () => {
     const res = await request(app)
         .get('/cart')
         .set('Authorization', `Bearer ${token}`);
@@ -23,7 +23,7 @@ test('GET /cart debe traer todo lo del carrito', async () => {
     expect(res.body).toBeInstanceOf(Array);
 });
 
-test('POST /cart ', async () => {
+test('POST /cart debe añadir al carrito de compras', async () => {
     const cart = {
         quantity: 1,
     }
